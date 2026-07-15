@@ -1,0 +1,25 @@
+seed: 20260715
+data:
+  root: cuhk_dataset/Small-Model-Track
+  train_manifest: artifacts/manifests/train_manifest.csv
+  test_manifest: artifacts/manifests/test_manifest.csv
+  image_size: 64
+  image_frames: 4
+  sequence_length: 32
+  num_classes: 40
+split:
+  validation_users: [user3, user5, user19, user24]
+training:
+  epochs: 1
+  batch_size: 2
+  num_workers: 0
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  amp: true
+  early_stopping_patience: 1
+  max_train_samples: 32
+  max_validation_samples: 16
+model:
+  embedding_dim: 64
+  dropout: 0.1
+output_dir: outputs/smoke

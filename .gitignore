@@ -1,0 +1,23 @@
+/.agents
+/artifacts
+/cuhk_dataset
+/outputs
+/handoff.md
+/__pycache__
+**/__pycache__
+*.pyc
+download.py
+
+# 敏感文件
+.env
+*.secret
+secrets.json
+config.local.*
+*.key
+*.pem
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
