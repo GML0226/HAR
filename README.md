@@ -11,6 +11,11 @@ python infer.py --config configs/smoke.yaml --checkpoint outputs/smoke/best.pt -
 ```
 
 After the smoke test passes, use `configs/demo.yaml` for the full initial experiment.
+```powershell
+python scripts/build_manifest.py
+python train.py --config configs/demo.yaml
+python infer.py --config configs/demo.yaml --checkpoint outputs/demo/best.pt --output outputs/demo/submission.csv
+```
 
 ## Phase 1A: Depth_Color + ImageNet ResNet18
 
@@ -22,8 +27,12 @@ python infer_visual.py --config configs/resnet18_depth_smoke.yaml --checkpoint o
 ```
 
 Use `configs/resnet18_depth.yaml` only after the smoke run has passed.
+```powershell
+python train_visual.py --config configs/resnet18_depth_optimized.yaml
+python infer_visual.py --config configs/resnet18_depth_optimized.yaml --checkpoint outputs/resnet18_depth_optimized/best.pt --output outputs/resnet18_depth_optimized/submission.csv
+```
 
 For the optimized full run, `configs/resnet18_depth_optimized.yaml` caches frame paths once, uses four persistent data-loading workers, and trains with a batch size of 12. It writes separate artifacts to avoid mixing it with the earlier run.
 
-python train_visual.py --config configs/resnet18_depth.yaml
-python infer_visual.py --config configs/resnet18_depth.yaml --checkpoint outputs/resnet18_depth/best.pt --output outputs/resnet18_depth/submission.csv
+
+
